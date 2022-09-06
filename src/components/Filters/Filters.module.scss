@@ -1,0 +1,17 @@
+.container_filters {
+    background-color: purple;
+    width: 90%;
+    padding: 20px 0;
+    margin-bottom: 20px;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .filters {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+}
