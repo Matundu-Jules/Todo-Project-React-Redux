@@ -20,8 +20,8 @@ function TodoItem(props) {
             </div>
             <div className={styles.todoDetailsMenu}>
                 <div className={styles.todoProgressCheck}>
-                    <label htmlFor="inprogress">In progress</label>
-                    <input type="checkbox" name="inprogress" id="inprogress" />
+                    <label htmlFor="isactive">Is Active</label>
+                    <input type="checkbox" name="isactive" id="isactive" />
                 </div>
                 <div className={styles.todoDoneCheck}>
                     <label htmlFor="isdone">Done</label>
