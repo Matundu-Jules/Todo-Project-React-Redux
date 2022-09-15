@@ -1,10 +1,10 @@
 // ACTIONS //
-const ADD_TODO = 'add todo'
-const MODIFY_TODO = 'modify todo'
-const DELETE_TODO = 'delete todo'
-const SET_FILTER = 'set filter'
-const TOGGLE_ACTIVE_TODO = 'toggle active todo'
-const TOGGLE_DONE_TODO = 'toggle done todo'
+export const ADD_TODO = 'add todo'
+export const MODIFY_TODO = 'modify todo'
+export const DELETE_TODO = 'delete todo'
+export const SET_FILTER = 'set filter'
+export const TOGGLE_ACTIVE_TODO = 'toggle active todo'
+export const TOGGLE_DONE_TODO = 'toggle done todo'
 
 // Possible Filters :
 export const visibilityFilters = {
@@ -21,9 +21,10 @@ export const addTodo = (todo) => {
     }
 }
 
-export const modifyTodo = (todo) => {
+export const modifyTodo = (index, todo) => {
     return {
         type: MODIFY_TODO,
+        index,
         todo,
     }
 }
