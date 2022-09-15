@@ -15,7 +15,7 @@ import { combineReducers } from 'redux'
 
 // }
 
-const todos = (state, action) => {
+const todos = (state = [], action) => {
     switch (action.type) {
         case actions.ADD_TODO: {
             return [...state, action.todo]
@@ -53,7 +53,7 @@ const todos = (state, action) => {
     }
 }
 
-const filter = (state, action) => {
+const filter = (state = actions.visibilityFilters.SHOW_ALL, action) => {
     switch (action.type) {
         case actions.SET_FILTER: {
             return action.filter
