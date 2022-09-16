@@ -30,10 +30,4 @@ function Filters({ setFilter }) {
     )
 }
 
-export default connect(null, (dispatch) => {
-    return {
-        setFilter: (filter) => {
-            dispatch(setFilter(filter))
-        },
-    }
-})(Filters)
+export default connect(null, { setFilter })(Filters)
