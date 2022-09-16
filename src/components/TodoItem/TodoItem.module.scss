@@ -2,13 +2,13 @@
     background-color: lightsalmon;
     width: 90%;
     min-height: 50px;
-    max-height: 150px;
+    // max-height: 150px;
     margin-bottom: 20px;
 }
 
 .todoText {
     width: 100%;
-    height: 40px;
+    min-height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,5 +57,37 @@
     &:hover {
         cursor: pointer;
         transform: scale(1.2);
+    }
+}
+
+.container_modify {
+    width: 90%;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .inputModify {
+        width: 100%;
+        padding: 5px 0;
+        margin-bottom: 10px;
+        text-align: center;
+        border-radius: 10px;
+    }
+    .container_btn_modify_cancel {
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        .btnModify {
+            padding: 6px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .btnCancel {
+            padding: 6px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
     }
 }

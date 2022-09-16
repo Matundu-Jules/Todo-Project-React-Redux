@@ -1,10 +1,25 @@
 import styles from './MenuDeleteUpdate.module.scss'
 
-function MenuDeleteUpdate() {
+function MenuDeleteUpdate({
+    deleteTodo,
+    setToggleModifyTodo,
+    setShowMenuUpdateDelete,
+}) {
     return (
         <div className={styles.container_menuDeleteUpdate}>
-            <button className="btn btn-delete-todo">Modify</button>
-            <button className="btn btn-delete-todo">Delete</button>
+            <button
+                className="btn btn-delete-todo"
+                onClick={(e) => {
+                    e.stopPropagation()
+                    setToggleModifyTodo(true)
+                    setShowMenuUpdateDelete(false)
+                }}
+            >
+                Modify
+            </button>
+            <button className="btn btn-delete-todo" onClick={deleteTodo}>
+                Delete
+            </button>
         </div>
     )
 }
