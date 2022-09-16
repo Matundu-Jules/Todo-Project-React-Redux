@@ -2,7 +2,7 @@ import { useState } from 'react'
 import MenuDeleteUpdate from './components/MenuDeleteUpdate'
 import styles from './TodoItem.module.scss'
 
-function TodoItem(props) {
+function TodoItem({ todo }) {
     const [showMenuUpdateDelete, setShowMenuUpdateDelete] = useState(false)
 
     function handleClickMenuDeleteUpdate() {
@@ -16,7 +16,7 @@ function TodoItem(props) {
     return (
         <div className={styles.container_todoItem}>
             <div className={styles.todoText}>
-                <p> My first task </p>
+                <p>{todo.name}</p>
             </div>
             <div className={styles.todoDetailsMenu}>
                 <div className={styles.todoProgressCheck}>
