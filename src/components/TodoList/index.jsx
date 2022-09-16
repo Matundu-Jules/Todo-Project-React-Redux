@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
 import { visibilityFilters } from '../../store/actions'
-import Filters from '../Filters'
 import TodoItem from '../TodoItem'
 import styles from './TodoList.module.scss'
 
@@ -8,13 +7,13 @@ function TodoList({ todos }) {
     return (
         <div className={styles.container_todoList}>
             <h2>Todo List</h2>
-            <Filters />
             {todos && todos.map((t) => <TodoItem key={t.name} todo={t} />)}
         </div>
     )
 }
 
 export default connect((state) => {
+    console.log(state)
     const filter = state.filter
     let todos
 
