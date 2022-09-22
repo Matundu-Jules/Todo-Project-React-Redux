@@ -56,6 +56,27 @@ export const todos = (
                 ),
             }
         }
+        case actions.REQUEST_TODO: {
+            return {
+                ...state,
+                loading: true,
+            }
+        }
+        case actions.FETCH_TODO_SUCCESS: {
+            return {
+                ...state,
+                data: [...state.data, action.todos],
+                loading: false,
+                error: null,
+            }
+        }
+        case actions.FETCH_TODO_ERROR: {
+            return {
+                ...state,
+                loading: false,
+                error: action.error,
+            }
+        }
         default: {
             return state
         }

@@ -6,6 +6,17 @@ export const SET_FILTER = 'set filter'
 export const TOGGLE_ACTIVE_TODO = 'toggle active todo'
 export const TOGGLE_DONE_TODO = 'toggle done todo'
 
+// Add new action for get the asyn data //
+
+// Set loading in true :
+export const REQUEST_TODO = 'request todo'
+// Fetch the data :
+export const FETCH_TODO = 'fetch todo'
+// Get Firebase data :
+export const FETCH_TODO_SUCCESS = 'fetch todo success'
+// Set error :
+export const FETCH_TODO_ERROR = 'fetch todo error'
+
 // Possible Filters :
 export const visibilityFilters = {
     SHOW_ALL: 'SHOW_ALL',
@@ -56,3 +67,30 @@ export const toggleDoneTodo = (index) => {
         index,
     }
 }
+
+// Add new action for get the async data //
+
+// Set loading in true :
+export const requestTodo = () => {
+    return {
+        type: REQUEST_TODO,
+    }
+}
+
+// Get Firebase data :
+export const fetchTodoSuccess = (todos) => {
+    return {
+        type: FETCH_TODO_SUCCESS,
+        todos,
+    }
+}
+
+// Set error :
+export const fetchTodoError = (error) => {
+    return {
+        type: FETCH_TODO_ERROR,
+        error,
+    }
+}
+
+// Fetch the data :
