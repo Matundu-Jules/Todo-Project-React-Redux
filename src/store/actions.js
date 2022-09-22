@@ -1,3 +1,5 @@
+import apiFirebase from '../config/api.firebase'
+
 // ACTIONS //
 export const ADD_TODO = 'add todo'
 export const MODIFY_TODO = 'modify todo'
@@ -94,3 +96,17 @@ export const fetchTodoError = (error) => {
 }
 
 // Fetch the data :
+export const fetchTodo = () => {
+    return (dispatch) => {
+        dispatch(requestTodo())
+        return apiFirebase.get('todos.json').then(
+            (response) => {
+                const data = response.data
+                dispatch(fetchTodoSuccess(data))
+            },
+            (error) => {
+                dispatch(fetchTodoError(error))
+            }
+        )
+    }
+}

@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import {
     visibilityFilters,
@@ -5,6 +6,7 @@ import {
     deleteTodo,
     toggleActiveTodo,
     toggleDoneTodo,
+    fetchTodo,
 } from '../../store/actions'
 import TodoItem from '../TodoItem'
 import styles from './TodoList.module.scss'
@@ -15,7 +17,12 @@ function TodoList({
     deleteTodo,
     toggleActiveTodo,
     toggleDoneTodo,
+    fetchTodo,
 }) {
+    useEffect(() => {
+        fetchTodo()
+    }, [fetchTodo])
+
     return (
         <div className={styles.container_todoList}>
             <h2>Todo List</h2>
@@ -41,15 +48,15 @@ export default connect(
 
         switch (filter) {
             case visibilityFilters.SHOW_DONE: {
-                todos = state.todos.filter((t) => t.done)
+                todos = state.todos.data.filter((t) => t.done)
                 break
             }
             case visibilityFilters.SHOW_ACTIVE: {
-                todos = state.todos.filter((t) => t.active)
+                todos = state.todos.data.filter((t) => t.active)
                 break
             }
             default: {
-                todos = state.todos
+                todos = state.todos.data
                 break
             }
         }
@@ -63,5 +70,6 @@ export default connect(
         deleteTodo,
         toggleActiveTodo,
         toggleDoneTodo,
+        fetchTodo,
     }
 )(TodoList)
