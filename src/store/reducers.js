@@ -20,16 +20,22 @@ export const todos = (
     action
 ) => {
     switch (action.type) {
-        case actions.ADD_TODO: {
+        case actions.ADD_TODO_SUCCESS: {
             return {
                 ...state,
                 data: [...state.data, action.todo],
             }
         }
+        case actions.ADD_TODO_ERROR: {
+            return {
+                ...state,
+                error: action.error,
+            }
+        }
         case actions.MODIFY_TODO: {
             return {
                 ...state,
-                data: state.map((t) =>
+                data: state.data.map((t) =>
                     t.id === action.index ? { ...t, name: action.todo } : t
                 ),
             }
@@ -37,13 +43,13 @@ export const todos = (
         case actions.DELETE_TODO: {
             return {
                 ...state,
-                data: state.filter((t) => t.id !== action.index),
+                data: state.data.filter((t) => t.id !== action.index),
             }
         }
         case actions.TOGGLE_ACTIVE_TODO: {
             return {
                 ...state,
-                data: state.map((t) =>
+                data: state.data.map((t) =>
                     t.id === action.index ? { ...t, active: !t.active } : t
                 ),
             }
@@ -51,7 +57,7 @@ export const todos = (
         case actions.TOGGLE_DONE_TODO: {
             return {
                 ...state,
-                data: state.map((t) =>
+                data: state.data.map((t) =>
                     t.id === action.index ? { ...t, done: !t.done } : t
                 ),
             }
@@ -63,10 +69,10 @@ export const todos = (
             }
         }
         case actions.FETCH_TODO_SUCCESS: {
-            if (action.todo) {
+            if (action.todos) {
                 return {
                     ...state,
-                    data: [...state.data, action.todos],
+                    data: [...state.data, ...action.todos],
                     loading: false,
                     error: null,
                 }

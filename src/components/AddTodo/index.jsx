@@ -1,15 +1,15 @@
 import { useRef } from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../../store/actions'
+import { tryAddTodo } from '../../store/actions'
 import styles from './AddTodo.module.scss'
 
-function AddTodo(props) {
+function AddTodo({ tryAddTodo }) {
     const input = useRef()
 
     function handleSubmitTodo(e) {
         e.preventDefault()
 
-        props.addTodo({
+        tryAddTodo({
             id: crypto.randomUUID(),
             name: input.current.value,
             active: false,
@@ -32,4 +32,4 @@ function AddTodo(props) {
     )
 }
 
-export default connect(null, { addTodo })(AddTodo)
+export default connect(null, { tryAddTodo })(AddTodo)
