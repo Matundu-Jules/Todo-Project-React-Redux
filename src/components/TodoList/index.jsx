@@ -8,6 +8,7 @@ import {
     toggleDoneTodo,
     fetchTodo,
 } from '../../store/actions'
+import { filteredTodoDataSelector, filterSelector } from '../../store/selectors'
 import TodoItem from '../TodoItem'
 import styles from './TodoList.module.scss'
 
@@ -43,26 +44,9 @@ function TodoList({
 
 export default connect(
     (state) => {
-        const filter = state.filter
-        let todos
-
-        switch (filter) {
-            case visibilityFilters.SHOW_DONE: {
-                todos = state.todos.data.filter((t) => t.done)
-                break
-            }
-            case visibilityFilters.SHOW_ACTIVE: {
-                todos = state.todos.data.filter((t) => t.active)
-                break
-            }
-            default: {
-                todos = state.todos.data
-                break
-            }
-        }
-
+        // Call the selector //
         return {
-            todos,
+            todos: filteredTodoDataSelector(state),
         }
     },
     {
